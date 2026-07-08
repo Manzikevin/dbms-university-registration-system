@@ -1,0 +1,41 @@
+## Build folders
+[Bb]in/
+[Oo]bj/
+
+## Visual Studio cache
+.vs/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider
+.idea/
+
+## VS Code
+.vscode/
+
+## NuGet packages
+packages/
+
+## Logs
+*.log
+
+## Temporary files
+*.tmp
+*.temp
+
+## Test Results
+TestResults/
+
+## Publish output
+publish/
+
+## Generated files
+Generated/
+
+## OS files
+.DS_Store
+Thumbs.db
