@@ -36,5 +36,15 @@ namespace UniRegstrationSys
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MDIParent mdi = new MDIParent();
+
+            mdi.FormClosed += (s, args) => this.Close();
+            mdi.Show();
+
+            this.Hide();
+        }
     }
 }
