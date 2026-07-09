@@ -21,6 +21,10 @@ namespace UniRegstrationSys
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
         }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void MDIParent_Load(object sender, EventArgs e)
         {
@@ -87,5 +91,7 @@ namespace UniRegstrationSys
             addStudentForm.MdiParent = this;
             addStudentForm.Show();
         }
+
+
     }
 }
