@@ -1,19 +1,13 @@
-﻿using MySql.Data.MySqlClient; // Fixed: Added mandatory dependency reference
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UniRegstrationSys
 {
     public partial class Form5 : Form
     {
-        // Initializes the summary dashboard form and its designer visual components.
+        public string LoggedInStudentReg { get; set; }
+
         public Form5()
         {
             InitializeComponent();
@@ -21,26 +15,37 @@ namespace UniRegstrationSys
 
         string connString = "Server=localhost;Database=universityreg;Uid=root;Pwd=;";
 
-        // Triggers initial setup routines when the window window loads.
         private void Form5_Load(object sender, EventArgs e)
         {
             ClearDashboardLabels();
+
+            if (!string.IsNullOrEmpty(LoggedInStudentReg))
+            {
+                StudentRegNoInput.Visible = false;
+                button1.Visible = false;
+                label1.Visible = false;
+
+                FetchStudentSummary(LoggedInStudentReg);
+            }
+            else
+            {
+                label2.Visible = false;
+                logoutbtn.Visible = false;
+                ClearDashboardLabels();
+            }
         }
 
-        // Resets all display labels back to their default placeholder text states.
         private void ClearDashboardLabels()
         {
             lblStudentName.Text = "Name: --";
             lblReg.Text = "Reg No: --";
-            lblProgram.Text = "Program: --"; // Updated placeholder for program field
-            lblYear.Text = "Year: --";       // Updated placeholder for year field
+            lblProgram.Text = "Program: --";
+            lblYear.Text = "Year: --";
             lblTotalCourses.Text = "0";
         }
 
-        // Queries the database using a JOIN aggregation to pull student details and count matching registration rows.
         private void FetchStudentSummary(string regNum)
         {
-            // Fixed: Standardized query projection to group only by structural columns existing in your schema
             string query = @"
                 SELECT 
                     s.FirstName, 
@@ -74,13 +79,11 @@ namespace UniRegstrationSys
                                 string year = reader["Year"].ToString();
                                 string totalCourses = reader["TotalCourses"].ToString();
 
-                                // Fixed: Successfully mapped real table strings to corresponding label controls
                                 lblStudentName.Text = $"Name: {firstName} {lastName}";
                                 lblReg.Text = $"Reg No: {actualRegNum}";
                                 lblProgram.Text = $"Program: {program}";
                                 lblYear.Text = $"Year: {year}";
-                                lblTotalCourses.Text = $" Total Courses Enrolled : { totalCourses}"
-                                ;
+                                lblTotalCourses.Text = $" Total Courses Enrolled : {totalCourses}";
                             }
                             else
                             {
@@ -97,9 +100,6 @@ namespace UniRegstrationSys
             }
         }
 
-
-
-        // Validates search input text strings and triggers the profile summary loading query on button click.
         private void button1_Click(object sender, EventArgs e)
         {
             string regNum = StudentRegNoInput.Text.Trim();
@@ -111,6 +111,18 @@ namespace UniRegstrationSys
             }
 
             FetchStudentSummary(regNum);
+        }
+
+        private void logoutbtn_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to Logout?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Form1 loginForm = new Form1();
+                loginForm.Show();
+                this.Hide();
+            }
         }
     }
 }

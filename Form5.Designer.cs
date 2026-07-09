@@ -36,6 +36,8 @@
             this.lblProgram = new System.Windows.Forms.Label();
             this.lblYear = new System.Windows.Forms.Label();
             this.lblTotalCourses = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.logoutbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // StudentRegNoInput
@@ -127,12 +129,39 @@
             this.lblTotalCourses.Text = "label2";
             this.lblTotalCourses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(393, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(195, 23);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Student Dashboard";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // logoutbtn
+            // 
+            this.logoutbtn.BackColor = System.Drawing.Color.Tomato;
+            this.logoutbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logoutbtn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutbtn.ForeColor = System.Drawing.Color.White;
+            this.logoutbtn.Location = new System.Drawing.Point(361, 426);
+            this.logoutbtn.Name = "logoutbtn";
+            this.logoutbtn.Size = new System.Drawing.Size(260, 34);
+            this.logoutbtn.TabIndex = 9;
+            this.logoutbtn.Text = "Logout";
+            this.logoutbtn.UseVisualStyleBackColor = false;
+            this.logoutbtn.Click += new System.EventHandler(this.logoutbtn_Click);
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1089, 506);
+            this.Controls.Add(this.logoutbtn);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTotalCourses);
             this.Controls.Add(this.lblYear);
             this.Controls.Add(this.lblProgram);
@@ -159,5 +188,7 @@
         private System.Windows.Forms.Label lblProgram;
         private System.Windows.Forms.Label lblYear;
         private System.Windows.Forms.Label lblTotalCourses;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button logoutbtn;
     }
 }

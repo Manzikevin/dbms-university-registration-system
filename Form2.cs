@@ -15,7 +15,7 @@ namespace UniRegstrationSys
         public MDIParent()
         {
             InitializeComponent();
-            this.IsMdiContainer = true; // Ensures this form is set as the MDI container
+            this.IsMdiContainer = true;
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -92,6 +92,16 @@ namespace UniRegstrationSys
             addStudentForm.Show();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to Logout?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (dialogResult == DialogResult.Yes)
+            {
+                Form1 loginForm = new Form1();
+                loginForm.Show();
+                this.Hide();
+            }
+        }
     }
 }

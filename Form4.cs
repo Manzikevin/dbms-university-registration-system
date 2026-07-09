@@ -1,20 +1,12 @@
-﻿using Google.Protobuf.WellKnownTypes;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UniRegstrationSys
 {
     public partial class StudentForm : Form
     {
-        // Initializes the form and its designer-generated visual components.
         public StudentForm()
         {
             InitializeComponent();
@@ -22,31 +14,26 @@ namespace UniRegstrationSys
 
         string connString = "Server=localhost;Database=universityreg;Uid=root;Pwd=;";
 
-        // Placeholder for filtering student records when the text in the search box changes.
         private void SearchBox_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        // Placeholder for executing logic when label2 is clicked.
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        // Placeholder for executing logic when the text inside textBox2 is modified.
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        // Triggers initial data loading to populate the grid as soon as the form opens.
         private void StudentForm_Load(object sender, EventArgs e)
         {
             RefreshStudentGrid();
         }
 
-        // Clears all entry fields on the form and refocuses the cursor onto the registration field.
         private void ClearFormFields()
         {
             RegNo.Clear();
@@ -57,45 +44,68 @@ namespace UniRegstrationSys
             RegNo.Focus();
         }
 
-        // Executes an INSERT command using safe parameters to save a new student record to MySQL.
         public bool SaveStudent(string regNum, string firstName, string lastName, string program, int year)
         {
-            string query = @"INSERT INTO Students (RegistrationNumber, FirstName, LastName, Program, Year) 
-                             VALUES (@RegNum, @FirstName, @LastName, @Program, @Year);";
+            string insertStudentQuery = @"INSERT INTO Students (RegistrationNumber, FirstName, LastName, Program, Year) 
+                                         VALUES (@RegNum, @FirstName, @LastName, @Program, @Year);";
+
+            string insertUserQuery = @"INSERT INTO Users (RegistrationNumber, PasswordHash, Role) 
+                                      VALUES (@RegNum, @PasswordHash, 'Student');";
 
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@RegNum", regNum);
-                    cmd.Parameters.AddWithValue("@FirstName", firstName);
-                    cmd.Parameters.AddWithValue("@LastName", lastName);
-                    cmd.Parameters.AddWithValue("@Program", program);
-                    cmd.Parameters.AddWithValue("@Year", year);
+                    conn.Open();
 
-                    try
+                    using (MySqlTransaction transaction = conn.BeginTransaction())
                     {
-                        conn.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        return rowsAffected > 0;
+                        try
+                        {
+                            using (MySqlCommand cmdStudent = new MySqlCommand(insertStudentQuery, conn, transaction))
+                            {
+                                cmdStudent.Parameters.AddWithValue("@RegNum", regNum);
+                                cmdStudent.Parameters.AddWithValue("@FirstName", firstName);
+                                cmdStudent.Parameters.AddWithValue("@LastName", lastName);
+                                cmdStudent.Parameters.AddWithValue("@Program", program);
+                                cmdStudent.Parameters.AddWithValue("@Year", year);
+
+                                cmdStudent.ExecuteNonQuery();
+                            }
+
+                            using (MySqlCommand cmdUser = new MySqlCommand(insertUserQuery, conn, transaction))
+                            {
+                                cmdUser.Parameters.AddWithValue("@RegNum", regNum);
+                                cmdUser.Parameters.AddWithValue("@PasswordHash", regNum);
+
+                                cmdUser.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                            return true;
+                        }
+                        catch (Exception)
+                        {
+                            transaction.Rollback();
+                            throw;
+                        }
                     }
-                    catch (MySqlException ex)
+                }
+                catch (MySqlException ex)
+                {
+                    if (ex.Number == 1062)
                     {
-                        if (ex.Number == 1062)
-                        {
-                            MessageBox.Show("This Registration Number already exists.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        return false;
+                        MessageBox.Show("This Registration Number already exists in the system.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                    else
+                    {
+                        MessageBox.Show("Database Transaction Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    return false;
                 }
             }
         }
 
-        // Queries the database to retrieve all registered student columns into a structured DataTable object.
         public DataTable GetStudentList()
         {
             string query = "SELECT StudentID, RegistrationNumber, FirstName, LastName, Program, Year FROM Students";
@@ -122,7 +132,6 @@ namespace UniRegstrationSys
             return dataTable;
         }
 
-        // Binds the updated database list to the DataGridView control and configures clean user column names.
         private void RefreshStudentGrid()
         {
             DataTable dt = GetStudentList();
@@ -136,7 +145,6 @@ namespace UniRegstrationSys
             dgvStudents.Columns["Year"].HeaderText = "Year";
         }
 
-        // Validates form input data, extracts text, and attempts to save a new student on button click.
         private void button1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(RegNo.Text) ||
@@ -164,13 +172,13 @@ namespace UniRegstrationSys
 
             if (isSuccess)
             {
-                MessageBox.Show("Student registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Student registered and user login account created successfully!\n\nDefault Password is: {regNum}",
+                                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearFormFields();
                 RefreshStudentGrid();
             }
         }
 
-        // Captures selected grid row field values and mapping data back to the entry form when a cell is clicked.
         private void dgvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -185,7 +193,6 @@ namespace UniRegstrationSys
             }
         }
 
-        // Executes an UPDATE database transaction to modify existing row values matching the unique registration number.
         public bool UpdateStudent(string regNum, string firstName, string lastName, string program, int year)
         {
             string query = @"UPDATE Students 
@@ -216,7 +223,6 @@ namespace UniRegstrationSys
             }
         }
 
-        // Validates selected values, parses numeric data, and processes edits to a student row on button click.
         private void button2_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(RegNo.Text))
@@ -244,7 +250,6 @@ namespace UniRegstrationSys
             }
         }
 
-        // Executes a DELETE database transaction targeting a single entry using its registration parameter.
         public bool DeleteStudent(string regNum)
         {
             string query = "DELETE FROM Students WHERE RegistrationNumber = @RegNum;";
@@ -269,7 +274,6 @@ namespace UniRegstrationSys
             }
         }
 
-        // Confirms intent with a dialog box before processing deletion operations against the designated student row.
         private void button3_Click(object sender, EventArgs e)
         {
             string regNum = RegNo.Text.Trim();
@@ -293,7 +297,6 @@ namespace UniRegstrationSys
             }
         }
 
-        // Resets all input controls back to their default empty states on clear button click.
         private void button4_Click(object sender, EventArgs e)
         {
             ClearFormFields();
