@@ -38,7 +38,7 @@ namespace UniRegstrationSys
             {
                 Form openForm = this.MdiChildren[i];
 
-                if (openForm is Form3)
+                if (openForm is Form5)
                 {
                     openForm.Activate();
                     return;
@@ -47,9 +47,9 @@ namespace UniRegstrationSys
                 openForm.Close();
             }
 
-            Form3 addStudentForm = new Form3();
-            addStudentForm.MdiParent = this;
-            addStudentForm.Show();
+            Form5 StudentDetailsForm = new Form5();
+            StudentDetailsForm.MdiParent = this;
+            StudentDetailsForm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)

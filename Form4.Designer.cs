@@ -49,7 +49,8 @@
             // 
             // RegNo
             // 
-            this.RegNo.Location = new System.Drawing.Point(622, 116);
+            this.RegNo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegNo.Location = new System.Drawing.Point(917, 107);
             this.RegNo.Multiline = true;
             this.RegNo.Name = "RegNo";
             this.RegNo.Size = new System.Drawing.Size(207, 33);
@@ -57,8 +58,9 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(506, 116);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(801, 107);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 33);
             this.label1.TabIndex = 3;
@@ -67,8 +69,9 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(506, 166);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(801, 157);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 33);
             this.label2.TabIndex = 5;
@@ -78,7 +81,8 @@
             // 
             // FirstName
             // 
-            this.FirstName.Location = new System.Drawing.Point(622, 166);
+            this.FirstName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FirstName.Location = new System.Drawing.Point(917, 157);
             this.FirstName.Multiline = true;
             this.FirstName.Name = "FirstName";
             this.FirstName.Size = new System.Drawing.Size(207, 33);
@@ -87,8 +91,9 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(506, 220);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(801, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 33);
             this.label3.TabIndex = 7;
@@ -97,7 +102,8 @@
             // 
             // LastName
             // 
-            this.LastName.Location = new System.Drawing.Point(622, 220);
+            this.LastName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastName.Location = new System.Drawing.Point(917, 211);
             this.LastName.Multiline = true;
             this.LastName.Name = "LastName";
             this.LastName.Size = new System.Drawing.Size(207, 33);
@@ -105,8 +111,9 @@
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(506, 280);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(801, 271);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 33);
             this.label4.TabIndex = 9;
@@ -115,7 +122,8 @@
             // 
             // Program
             // 
-            this.Program.Location = new System.Drawing.Point(622, 280);
+            this.Program.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Program.Location = new System.Drawing.Point(917, 271);
             this.Program.Multiline = true;
             this.Program.Name = "Program";
             this.Program.Size = new System.Drawing.Size(207, 33);
@@ -123,8 +131,9 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(506, 334);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(801, 325);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(110, 33);
             this.label5.TabIndex = 11;
@@ -133,7 +142,8 @@
             // 
             // Year
             // 
-            this.Year.Location = new System.Drawing.Point(622, 334);
+            this.Year.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Year.Location = new System.Drawing.Point(917, 325);
             this.Year.Multiline = true;
             this.Year.Name = "Year";
             this.Year.Size = new System.Drawing.Size(207, 33);
@@ -142,9 +152,10 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.LimeGreen;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(509, 412);
+            this.button1.Location = new System.Drawing.Point(804, 403);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 44);
             this.button1.TabIndex = 12;
@@ -155,9 +166,10 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(590, 412);
+            this.button2.Location = new System.Drawing.Point(885, 403);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 44);
             this.button2.TabIndex = 13;
@@ -168,9 +180,10 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Tomato;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(673, 412);
+            this.button3.Location = new System.Drawing.Point(968, 403);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 44);
             this.button3.TabIndex = 14;
@@ -180,9 +193,10 @@
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.Yellow;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(754, 412);
+            this.button4.BackColor = System.Drawing.Color.Gold;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(1049, 403);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 44);
             this.button4.TabIndex = 15;
@@ -192,17 +206,19 @@
             // 
             // dgvStudents
             // 
+            this.dgvStudents.BackgroundColor = System.Drawing.Color.White;
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudents.Location = new System.Drawing.Point(12, 12);
             this.dgvStudents.Name = "dgvStudents";
-            this.dgvStudents.Size = new System.Drawing.Size(478, 444);
+            this.dgvStudents.Size = new System.Drawing.Size(688, 444);
             this.dgvStudents.TabIndex = 16;
             this.dgvStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudents_CellContentClick);
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(618, 51);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(913, 42);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(192, 23);
             this.label6.TabIndex = 17;
@@ -212,7 +228,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 502);
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.ClientSize = new System.Drawing.Size(1204, 502);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvStudents);
             this.Controls.Add(this.button4);

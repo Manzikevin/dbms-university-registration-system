@@ -49,18 +49,20 @@
             // 
             // dgvCourses
             // 
+            this.dgvCourses.BackgroundColor = System.Drawing.Color.White;
             this.dgvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCourses.Location = new System.Drawing.Point(12, 26);
             this.dgvCourses.Name = "dgvCourses";
-            this.dgvCourses.Size = new System.Drawing.Size(478, 444);
+            this.dgvCourses.Size = new System.Drawing.Size(760, 444);
             this.dgvCourses.TabIndex = 17;
             this.dgvCourses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.Yellow;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(788, 282);
+            this.button4.Location = new System.Drawing.Point(1129, 254);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 44);
             this.button4.TabIndex = 21;
@@ -71,9 +73,10 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Tomato;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(707, 282);
+            this.button3.Location = new System.Drawing.Point(1048, 254);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 44);
             this.button3.TabIndex = 20;
@@ -84,9 +87,10 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(624, 282);
+            this.button2.Location = new System.Drawing.Point(965, 254);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 44);
             this.button2.TabIndex = 19;
@@ -97,9 +101,10 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.ForestGreen;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(543, 282);
+            this.button1.Location = new System.Drawing.Point(884, 254);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 44);
             this.button1.TabIndex = 18;
@@ -110,63 +115,73 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(538, 86);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(879, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 33);
             this.label2.TabIndex = 23;
             this.label2.Text = "Course Code";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // CourseCode
             // 
-            this.CourseCode.Location = new System.Drawing.Point(654, 86);
+            this.CourseCode.Location = new System.Drawing.Point(995, 58);
             this.CourseCode.Multiline = true;
             this.CourseCode.Name = "CourseCode";
             this.CourseCode.Size = new System.Drawing.Size(207, 33);
             this.CourseCode.TabIndex = 22;
+            this.CourseCode.TextChanged += new System.EventHandler(this.CourseCode_TextChanged);
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(538, 149);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(879, 121);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 33);
             this.label1.TabIndex = 25;
             this.label1.Text = "Course Title";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // CourseName
             // 
-            this.CourseName.Location = new System.Drawing.Point(654, 149);
+            this.CourseName.Location = new System.Drawing.Point(995, 121);
             this.CourseName.Multiline = true;
             this.CourseName.Name = "CourseName";
             this.CourseName.Size = new System.Drawing.Size(207, 33);
             this.CourseName.TabIndex = 24;
+            this.CourseName.TextChanged += new System.EventHandler(this.CourseName_TextChanged);
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(538, 217);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(879, 189);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 33);
             this.label3.TabIndex = 27;
             this.label3.Text = "Course Credit";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Credits
             // 
-            this.Credits.Location = new System.Drawing.Point(654, 217);
+            this.Credits.Location = new System.Drawing.Point(995, 189);
             this.Credits.Multiline = true;
             this.Credits.Name = "Credits";
             this.Credits.Size = new System.Drawing.Size(207, 33);
             this.Credits.TabIndex = 26;
+            this.Credits.TextChanged += new System.EventHandler(this.Credits_TextChanged);
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.ForestGreen;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(624, 437);
+            this.button5.Location = new System.Drawing.Point(965, 437);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(102, 33);
             this.button5.TabIndex = 28;
@@ -177,27 +192,31 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(540, 398);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(881, 377);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 33);
             this.label4.TabIndex = 30;
             this.label4.Text = "Student Reg No";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // StudentRegNo
             // 
-            this.StudentRegNo.Location = new System.Drawing.Point(656, 398);
+            this.StudentRegNo.Location = new System.Drawing.Point(997, 377);
             this.StudentRegNo.Multiline = true;
             this.StudentRegNo.Name = "StudentRegNo";
             this.StudentRegNo.Size = new System.Drawing.Size(207, 33);
             this.StudentRegNo.TabIndex = 29;
+            this.StudentRegNo.TextChanged += new System.EventHandler(this.StudentRegNo_TextChanged);
             // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.Tomato;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(732, 437);
+            this.button6.Location = new System.Drawing.Point(1073, 437);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(129, 33);
             this.button6.TabIndex = 31;
@@ -208,17 +227,20 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(540, 362);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(881, 334);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 23);
             this.label5.TabIndex = 32;
             this.label5.Text = "Register Course To Student";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 502);
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.ClientSize = new System.Drawing.Size(1245, 502);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label4);
