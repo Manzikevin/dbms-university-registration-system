@@ -261,5 +261,181 @@ namespace UniRegstrationSys
         {
             ClearFormFields() ;
         }
+
+        // Verifies if a student exists in the system and safely maps their unique string to an internal ID integer.
+        public int GetStudentID(string regNum)
+        {
+            string query = "SELECT StudentID FROM Students WHERE RegistrationNumber = @RegNum;";
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@RegNum", regNum);
+                    try
+                    {
+                        conn.Open();
+                        object result = cmd.ExecuteScalar();
+                        return result != null ? Convert.ToInt32(result) : -1;
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return -1;
+                    }
+                }
+            }
+        }
+
+        public int GetCourseID(string courseCode)
+        {
+            string query = "SELECT CourseID FROM Courses WHERE CourseCode = @CourseCode;";
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@CourseCode", courseCode);
+                    try
+                    {
+                        conn.Open();
+                        object result = cmd.ExecuteScalar();
+                        return result != null ? Convert.ToInt32(result) : -1;
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return -1;
+                    }
+                }
+            }
+        }
+
+        public bool EnrollStudent(int studentId, int courseId)
+        {
+            string checkQuery = "SELECT COUNT(*) FROM Registrations WHERE StudentID = @StudentID AND CourseID = @CourseID;";
+            string insertQuery = "INSERT INTO Registrations (StudentID, CourseID, RegistrationDate) VALUES (@StudentID, @CourseID, @RegDate);";
+
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand checkCmd = new MySqlCommand(checkQuery, conn))
+                    {
+                        checkCmd.Parameters.AddWithValue("@StudentID", studentId);
+                        checkCmd.Parameters.AddWithValue("@CourseID", courseId);
+                        if (Convert.ToInt32(checkCmd.ExecuteScalar()) > 0)
+                        {
+                            MessageBox.Show("This student is already enrolled in this course.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return false;
+                        }
+                    }
+
+                    using (MySqlCommand insertCmd = new MySqlCommand(insertQuery, conn))
+                    {
+                        insertCmd.Parameters.AddWithValue("@StudentID", studentId);
+                        insertCmd.Parameters.AddWithValue("@CourseID", courseId);
+                        insertCmd.Parameters.AddWithValue("@RegDate", DateTime.Now.Date);
+                        return insertCmd.ExecuteNonQuery() > 0;
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+        }
+
+        // Deletes an enrollment row permanently matching the provided unique internal student and course identifiers.
+        public bool UnenrollStudent(int studentId, int courseId)
+        {
+            string query = "DELETE FROM Registrations WHERE StudentID = @StudentID AND CourseID = @CourseID;";
+            using (MySqlConnection conn = new MySqlConnection(connString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@StudentID", studentId);
+                    cmd.Parameters.AddWithValue("@CourseID", courseId);
+                    try
+                    {
+                        conn.Open();
+                        return cmd.ExecuteNonQuery() > 0;
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string regNum = StudentRegNo.Text.Trim(); // Reads RegistrationNumber text from your textbox layout
+            string courseCode = CourseCode.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(regNum) || string.IsNullOrWhiteSpace(courseCode))
+            {
+                MessageBox.Show("Please enter a Student Registration Number and select a course from the grid.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int studentId = GetStudentID(regNum); // Translates "RegistrationNumber" text into "StudentID" integer
+            if (studentId == -1)
+            {
+                MessageBox.Show("Student registration number not found in database.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int courseId = GetCourseID(courseCode); // Translates "CourseCode" text into "CourseID" integer
+            if (courseId == -1)
+            {
+                MessageBox.Show("Course verification failed. Please select a valid course.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (EnrollStudent(studentId, courseId))
+            {
+                MessageBox.Show("Student enrolled in the course successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClearFormFields();
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string regNum = StudentRegNo.Text.Trim();
+            string courseCode = CourseCode.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(regNum) || string.IsNullOrWhiteSpace(courseCode))
+            {
+                MessageBox.Show("Please enter a Student Registration Number and select a course from the grid.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int studentId = GetStudentID(regNum);
+            int courseId = GetCourseID(courseCode);
+
+            if (studentId == -1 || courseId == -1)
+            {
+                MessageBox.Show("Could not find active records matching the provided input details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show($"Are you sure you want to drop course {courseCode} for student {regNum}?", "Confirm Unenrollment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                if (UnenrollStudent(studentId, courseId))
+                {
+                    MessageBox.Show("Course removed from student record successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearFormFields();
+                }
+                else
+                {
+                    MessageBox.Show("No active course matching this enrollment details was discovered.", "Execution Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        
+        }
     }
 }

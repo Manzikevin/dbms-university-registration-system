@@ -41,7 +41,7 @@
             this.Credits = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.StudentRegNo = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
@@ -170,8 +170,9 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(102, 33);
             this.button5.TabIndex = 28;
-            this.button5.Text = "Add Course";
+            this.button5.Text = "Enroll";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label4
             // 
@@ -183,13 +184,13 @@
             this.label4.Text = "Student Reg No";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox4
+            // StudentRegNo
             // 
-            this.textBox4.Location = new System.Drawing.Point(656, 398);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(207, 33);
-            this.textBox4.TabIndex = 29;
+            this.StudentRegNo.Location = new System.Drawing.Point(656, 398);
+            this.StudentRegNo.Multiline = true;
+            this.StudentRegNo.Name = "StudentRegNo";
+            this.StudentRegNo.Size = new System.Drawing.Size(207, 33);
+            this.StudentRegNo.TabIndex = 29;
             // 
             // button6
             // 
@@ -200,8 +201,9 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(129, 33);
             this.button6.TabIndex = 31;
-            this.button6.Text = "Remove Course";
+            this.button6.Text = "Unenroll";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label5
             // 
@@ -220,7 +222,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.StudentRegNo);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Credits);
@@ -257,7 +259,7 @@
         private System.Windows.Forms.TextBox Credits;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox StudentRegNo;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label5;
     }
