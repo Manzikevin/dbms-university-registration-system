@@ -65,7 +65,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(454, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "WELCOME TO STUDENT REGISTRATION SYSTEM";
+            this.label1.Text = "STUDENT REGISTRATION SYSTEM";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel1

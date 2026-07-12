@@ -44,7 +44,9 @@
             this.StudentRegNo = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvCourses
@@ -62,7 +64,7 @@
             this.button4.BackColor = System.Drawing.Color.Yellow;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(1129, 254);
+            this.button4.Location = new System.Drawing.Point(272, 215);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 44);
             this.button4.TabIndex = 21;
@@ -76,7 +78,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1048, 254);
+            this.button3.Location = new System.Drawing.Point(191, 215);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 44);
             this.button3.TabIndex = 20;
@@ -90,7 +92,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(965, 254);
+            this.button2.Location = new System.Drawing.Point(108, 215);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 44);
             this.button2.TabIndex = 19;
@@ -104,7 +106,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(884, 254);
+            this.button1.Location = new System.Drawing.Point(27, 215);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 44);
             this.button1.TabIndex = 18;
@@ -116,7 +118,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(879, 58);
+            this.label2.Location = new System.Drawing.Point(22, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 33);
             this.label2.TabIndex = 23;
@@ -126,7 +128,7 @@
             // 
             // CourseCode
             // 
-            this.CourseCode.Location = new System.Drawing.Point(995, 58);
+            this.CourseCode.Location = new System.Drawing.Point(138, 26);
             this.CourseCode.Multiline = true;
             this.CourseCode.Name = "CourseCode";
             this.CourseCode.Size = new System.Drawing.Size(207, 33);
@@ -137,7 +139,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(879, 121);
+            this.label1.Location = new System.Drawing.Point(22, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 33);
             this.label1.TabIndex = 25;
@@ -147,7 +149,7 @@
             // 
             // CourseName
             // 
-            this.CourseName.Location = new System.Drawing.Point(995, 121);
+            this.CourseName.Location = new System.Drawing.Point(138, 82);
             this.CourseName.Multiline = true;
             this.CourseName.Name = "CourseName";
             this.CourseName.Size = new System.Drawing.Size(207, 33);
@@ -158,7 +160,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(879, 189);
+            this.label3.Location = new System.Drawing.Point(22, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 33);
             this.label3.TabIndex = 27;
@@ -168,7 +170,7 @@
             // 
             // Credits
             // 
-            this.Credits.Location = new System.Drawing.Point(995, 189);
+            this.Credits.Location = new System.Drawing.Point(138, 150);
             this.Credits.Multiline = true;
             this.Credits.Name = "Credits";
             this.Credits.Size = new System.Drawing.Size(207, 33);
@@ -181,7 +183,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(965, 437);
+            this.button5.Location = new System.Drawing.Point(108, 398);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(102, 33);
             this.button5.TabIndex = 28;
@@ -193,7 +195,7 @@
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(881, 377);
+            this.label4.Location = new System.Drawing.Point(24, 338);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 33);
             this.label4.TabIndex = 30;
@@ -203,7 +205,7 @@
             // 
             // StudentRegNo
             // 
-            this.StudentRegNo.Location = new System.Drawing.Point(997, 377);
+            this.StudentRegNo.Location = new System.Drawing.Point(140, 338);
             this.StudentRegNo.Multiline = true;
             this.StudentRegNo.Name = "StudentRegNo";
             this.StudentRegNo.Size = new System.Drawing.Size(207, 33);
@@ -216,7 +218,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(1073, 437);
+            this.button6.Location = new System.Drawing.Point(216, 398);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(129, 33);
             this.button6.TabIndex = 31;
@@ -228,12 +230,38 @@
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(881, 334);
+            this.label5.Location = new System.Drawing.Point(24, 295);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 23);
             this.label5.TabIndex = 32;
             this.label5.Text = "Register Course To Student";
             this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.StudentRegNo);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.CourseCode);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.Credits);
+            this.groupBox1.Controls.Add(this.CourseName);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(842, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(376, 458);
+            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Course Registration & Enrollments";
             // 
             // Form3
             // 
@@ -241,28 +269,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(1245, 502);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.StudentRegNo);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.Credits);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.CourseName);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.CourseCode);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvCourses);
             this.Name = "Form3";
             this.Text = "Course Registration";
             this.Load += new System.EventHandler(this.Form3_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourses)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -284,5 +299,6 @@
         private System.Windows.Forms.TextBox StudentRegNo;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
