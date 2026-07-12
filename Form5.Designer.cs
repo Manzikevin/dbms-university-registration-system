@@ -38,6 +38,8 @@
             this.lblTotalCourses = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.logoutbtn = new System.Windows.Forms.Button();
+            this.lblFaculty = new System.Windows.Forms.Label();
+            this.lblDepartment = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // StudentRegNoInput
@@ -78,7 +80,7 @@
             // 
             this.lblStudentName.BackColor = System.Drawing.Color.White;
             this.lblStudentName.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudentName.Location = new System.Drawing.Point(358, 177);
+            this.lblStudentName.Location = new System.Drawing.Point(358, 162);
             this.lblStudentName.Name = "lblStudentName";
             this.lblStudentName.Size = new System.Drawing.Size(263, 23);
             this.lblStudentName.TabIndex = 3;
@@ -89,7 +91,7 @@
             // 
             this.lblReg.BackColor = System.Drawing.Color.White;
             this.lblReg.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReg.Location = new System.Drawing.Point(358, 223);
+            this.lblReg.Location = new System.Drawing.Point(358, 198);
             this.lblReg.Name = "lblReg";
             this.lblReg.Size = new System.Drawing.Size(263, 23);
             this.lblReg.TabIndex = 4;
@@ -100,7 +102,7 @@
             // 
             this.lblProgram.BackColor = System.Drawing.Color.White;
             this.lblProgram.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProgram.Location = new System.Drawing.Point(358, 271);
+            this.lblProgram.Location = new System.Drawing.Point(358, 239);
             this.lblProgram.Name = "lblProgram";
             this.lblProgram.Size = new System.Drawing.Size(263, 23);
             this.lblProgram.TabIndex = 5;
@@ -111,7 +113,7 @@
             // 
             this.lblYear.BackColor = System.Drawing.Color.White;
             this.lblYear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblYear.Location = new System.Drawing.Point(358, 316);
+            this.lblYear.Location = new System.Drawing.Point(358, 281);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(263, 23);
             this.lblYear.TabIndex = 6;
@@ -122,7 +124,7 @@
             // 
             this.lblTotalCourses.BackColor = System.Drawing.Color.White;
             this.lblTotalCourses.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalCourses.Location = new System.Drawing.Point(358, 355);
+            this.lblTotalCourses.Location = new System.Drawing.Point(358, 319);
             this.lblTotalCourses.Name = "lblTotalCourses";
             this.lblTotalCourses.Size = new System.Drawing.Size(263, 23);
             this.lblTotalCourses.TabIndex = 7;
@@ -133,7 +135,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(393, 104);
+            this.label2.Location = new System.Drawing.Point(357, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(195, 23);
             this.label2.TabIndex = 8;
@@ -146,7 +148,7 @@
             this.logoutbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoutbtn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutbtn.ForeColor = System.Drawing.Color.White;
-            this.logoutbtn.Location = new System.Drawing.Point(361, 426);
+            this.logoutbtn.Location = new System.Drawing.Point(361, 439);
             this.logoutbtn.Name = "logoutbtn";
             this.logoutbtn.Size = new System.Drawing.Size(260, 34);
             this.logoutbtn.TabIndex = 9;
@@ -154,12 +156,36 @@
             this.logoutbtn.UseVisualStyleBackColor = false;
             this.logoutbtn.Click += new System.EventHandler(this.logoutbtn_Click);
             // 
+            // lblFaculty
+            // 
+            this.lblFaculty.BackColor = System.Drawing.Color.White;
+            this.lblFaculty.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFaculty.Location = new System.Drawing.Point(358, 357);
+            this.lblFaculty.Name = "lblFaculty";
+            this.lblFaculty.Size = new System.Drawing.Size(263, 23);
+            this.lblFaculty.TabIndex = 10;
+            this.lblFaculty.Text = "label2";
+            this.lblFaculty.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblDepartment
+            // 
+            this.lblDepartment.BackColor = System.Drawing.Color.White;
+            this.lblDepartment.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartment.Location = new System.Drawing.Point(358, 394);
+            this.lblDepartment.Name = "lblDepartment";
+            this.lblDepartment.Size = new System.Drawing.Size(263, 23);
+            this.lblDepartment.TabIndex = 11;
+            this.lblDepartment.Text = "label2";
+            this.lblDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(1089, 506);
+            this.ClientSize = new System.Drawing.Size(1121, 574);
+            this.Controls.Add(this.lblDepartment);
+            this.Controls.Add(this.lblFaculty);
             this.Controls.Add(this.logoutbtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTotalCourses);
@@ -190,5 +216,7 @@
         private System.Windows.Forms.Label lblTotalCourses;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button logoutbtn;
+        private System.Windows.Forms.Label lblFaculty;
+        private System.Windows.Forms.Label lblDepartment;
     }
 }

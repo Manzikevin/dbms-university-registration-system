@@ -41,13 +41,16 @@ namespace UniRegstrationSys
             LastName.Clear();
             Program.Text = "";
             Year.Clear();
+            FacultyText.Clear();    
+            DepartmentText.Clear(); 
+
             RegNo.Focus();
         }
 
-        public bool SaveStudent(string regNum, string firstName, string lastName, string program, int year)
+        public bool SaveStudent(string regNum, string firstName, string lastName, string program, int year, string faculty, string department)
         {
-            string insertStudentQuery = @"INSERT INTO Students (RegistrationNumber, FirstName, LastName, Program, Year) 
-                                         VALUES (@RegNum, @FirstName, @LastName, @Program, @Year);";
+            string insertStudentQuery = @"INSERT INTO Students (RegistrationNumber, FirstName, LastName, Program, Year, Faculty, Department) 
+                                         VALUES (@RegNum, @FirstName, @LastName, @Program, @Year, @Faculty, @Department);";
 
             string insertUserQuery = @"INSERT INTO Users (RegistrationNumber, PasswordHash, Role) 
                                       VALUES (@RegNum, @PasswordHash, 'Student');";
@@ -69,6 +72,8 @@ namespace UniRegstrationSys
                                 cmdStudent.Parameters.AddWithValue("@LastName", lastName);
                                 cmdStudent.Parameters.AddWithValue("@Program", program);
                                 cmdStudent.Parameters.AddWithValue("@Year", year);
+                                cmdStudent.Parameters.AddWithValue("@Faculty", faculty);
+                                cmdStudent.Parameters.AddWithValue("@Department", department);
 
                                 cmdStudent.ExecuteNonQuery();
                             }
@@ -108,7 +113,7 @@ namespace UniRegstrationSys
 
         public DataTable GetStudentList()
         {
-            string query = "SELECT StudentID, RegistrationNumber, FirstName, LastName, Program, Year FROM Students";
+            string query = "SELECT StudentID, RegistrationNumber, FirstName, LastName, Program, Year, Faculty, Department FROM Students";
             DataTable dataTable = new DataTable();
 
             using (MySqlConnection conn = new MySqlConnection(connString))
@@ -143,6 +148,8 @@ namespace UniRegstrationSys
             dgvStudents.Columns["LastName"].HeaderText = "Last Name";
             dgvStudents.Columns["Program"].HeaderText = "Program";
             dgvStudents.Columns["Year"].HeaderText = "Year";
+            dgvStudents.Columns["Faculty"].HeaderText = "Faculty";
+            dgvStudents.Columns["Department"].HeaderText = "Department";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -168,7 +175,10 @@ namespace UniRegstrationSys
             string lastName = LastName.Text.Trim();
             string program = Program.Text.Trim();
 
-            bool isSuccess = SaveStudent(regNum, firstName, lastName, program, schoolYear);
+            string faculty = FacultyText.Text.Trim();
+            string department = DepartmentText.Text.Trim();
+
+            bool isSuccess = SaveStudent(regNum, firstName, lastName, program, schoolYear, faculty, department);
 
             if (isSuccess)
             {
@@ -190,13 +200,15 @@ namespace UniRegstrationSys
                 LastName.Text = row.Cells["LastName"].Value?.ToString();
                 Program.Text = row.Cells["Program"].Value?.ToString();
                 Year.Text = row.Cells["Year"].Value?.ToString();
+                FacultyText.Text = row.Cells["Faculty"].Value?.ToString();
+                DepartmentText.Text = row.Cells["Department"].Value?.ToString();
             }
         }
 
-        public bool UpdateStudent(string regNum, string firstName, string lastName, string program, int year)
+        public bool UpdateStudent(string regNum, string firstName, string lastName, string program, int year, string faculty, string department)
         {
             string query = @"UPDATE Students 
-                             SET FirstName = @FirstName, LastName = @LastName, Program = @Program, Year = @Year 
+                             SET FirstName = @FirstName, LastName = @LastName, Program = @Program, Year = @Year, Faculty = @Faculty, Department = @Department 
                              WHERE RegistrationNumber = @RegNum;";
 
             using (MySqlConnection conn = new MySqlConnection(connString))
@@ -208,6 +220,8 @@ namespace UniRegstrationSys
                     cmd.Parameters.AddWithValue("@LastName", lastName);
                     cmd.Parameters.AddWithValue("@Program", program);
                     cmd.Parameters.AddWithValue("@Year", year);
+                    cmd.Parameters.AddWithValue("@Faculty", faculty);
+                    cmd.Parameters.AddWithValue("@Department", department);
 
                     try
                     {
@@ -242,7 +256,10 @@ namespace UniRegstrationSys
             string lastName = LastName.Text.Trim();
             string program = Program.Text.Trim();
 
-            if (UpdateStudent(regNum, firstName, lastName, program, schoolYear))
+            string faculty = FacultyText.Text.Trim();
+            string department = DepartmentText.Text.Trim();
+
+            if (UpdateStudent(regNum, firstName, lastName, program, schoolYear, faculty, department))
             {
                 MessageBox.Show("Student updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearFormFields();

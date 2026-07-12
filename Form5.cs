@@ -41,11 +41,15 @@ namespace UniRegstrationSys
             lblReg.Text = "Reg No: --";
             lblProgram.Text = "Program: --";
             lblYear.Text = "Year: --";
+            lblFaculty.Text = "Faculty: --";
+            lblDepartment.Text = "Department: --";
+
             lblTotalCourses.Text = "0";
         }
 
         private void FetchStudentSummary(string regNum)
         {
+
             string query = @"
                 SELECT 
                     s.FirstName, 
@@ -53,11 +57,13 @@ namespace UniRegstrationSys
                     s.RegistrationNumber, 
                     s.Program, 
                     s.Year, 
+                    s.Faculty,
+                    s.Department,
                     COUNT(r.RegistrationID) AS TotalCourses
                 FROM Students s
                 LEFT JOIN Registrations r ON s.StudentID = r.StudentID
                 WHERE s.RegistrationNumber = @RegNum
-                GROUP BY s.StudentID, s.FirstName, s.LastName, s.RegistrationNumber, s.Program, s.Year;";
+                GROUP BY s.StudentID, s.FirstName, s.LastName, s.RegistrationNumber, s.Program, s.Year, s.Faculty, s.Department;";
 
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
@@ -77,12 +83,20 @@ namespace UniRegstrationSys
                                 string actualRegNum = reader["RegistrationNumber"].ToString();
                                 string program = reader["Program"].ToString();
                                 string year = reader["Year"].ToString();
+
+                                string faculty = reader["Faculty"].ToString();
+                                string department = reader["Department"].ToString();
+
                                 string totalCourses = reader["TotalCourses"].ToString();
 
                                 lblStudentName.Text = $"Name: {firstName} {lastName}";
                                 lblReg.Text = $"Reg No: {actualRegNum}";
                                 lblProgram.Text = $"Program: {program}";
                                 lblYear.Text = $"Year: {year}";
+
+                                lblFaculty.Text = $"Faculty: {faculty}";
+                                lblDepartment.Text = $"Department: {department}";
+
                                 lblTotalCourses.Text = $" Total Courses Enrolled : {totalCourses}";
                             }
                             else
